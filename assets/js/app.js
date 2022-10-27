@@ -44,3 +44,16 @@ function showQuestion(data) {
       `;
     selectOption();
 }
+
+// options selection
+function selectOption() {
+    options.querySelectorAll("li").forEach(function (option) {
+      option.addEventListener("click", function () {
+        if (options.querySelector(".selected")) {
+          const activeOption = options.querySelector(".selected");
+          activeOption.classList.remove("selected");
+        }
+        option.classList.add("selected");
+      });
+    });
+  }
