@@ -111,3 +111,18 @@ function checkCount() {
     }, 300);
   }
 }
+
+function setCount() {
+  _totalQuestion.textContent = totalQuestion;
+  _correctScore.textContent = correctScore;
+}
+
+// restart quiz
+function restartQuiz() {
+  correctScore = askedCount = 0;
+  playAgainButton.style.display = "none";
+  checkButton.style.display = "block";
+  checkButton.disabled = false;
+  setCount();
+  loadQuestion();
+}
