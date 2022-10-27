@@ -39,6 +39,19 @@ body {
 }
 
 .quiz-title {
-    text-align: center;
-    font-size: 2rem;
-  }
+  text-align: center;
+  font-size: 2rem;
+}
+
+.quiz-score {
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border: 5px solid var(--grey-color);
+  font-weight: bold;
+  width: 100px;
+  height: 50px;
+  margin: 0.5rem auto 1rem auto;
+  color: var(--light-purple-color);
+}
