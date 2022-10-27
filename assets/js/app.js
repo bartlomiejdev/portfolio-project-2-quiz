@@ -4,6 +4,7 @@ const totalQuestion2 = document.getElementById("total-question2");
 const actualQuestion = document.getElementById("actual-question");
 const checkButton = document.getElementById("check-answer");
 const playAgainButton = document.getElementById("play-again");
+const result = document.getElementById("result");
 
 let correctAnswer = "",
   correctScore = (askedCount = 0),
@@ -21,8 +22,8 @@ async function loadQuestion() {
 
 // event listeners
 function eventListeners() {
-    checkButton.addEventListener("click", checkAnswer);
-    playAgainButton.addEventListener("click", restartQuiz);
+  checkButton.addEventListener("click", checkAnswer);
+  playAgainButton.addEventListener("click", restartQuiz);
 }
 
 // display questions and options
@@ -73,3 +74,21 @@ function HTMLDecode(textString) {
   let doc = new DOMParser().parseFromString(textString, "text/html");
   return doc.documentElement.textContent;
 }
+
+// answer checking
+function checkAnswer() {
+    checkButton.disabled = true;
+    if (options.querySelector(".selected")) {
+      let selectedAnswer = options.querySelector(".selected span").textContent;
+      if (selectedAnswer == HTMLDecode(correctAnswer)) {
+        correctScore++;
+        result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
+      } else {
+        result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
+      }
+      checkCount();
+    } else {
+      result.innerHTML = `<p><i class = "fas fa-question"></i>Please select an option!</p>`;
+      checkButton.disabled = false;
+    }
+  }
