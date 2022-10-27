@@ -123,3 +123,10 @@ body {
 .quiz-options li:active {
   transform: scale(0.97);
 }
+
+.selected {
+  background-color: var(--grey-color) !important;
+  color: var(--dark-color) !important;
+  border-color: var(--grey-color) !important;
+  box-shadow: 0 4px 0 0 #bbbbbb !important;
+}
