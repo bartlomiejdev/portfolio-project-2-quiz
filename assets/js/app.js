@@ -1,5 +1,7 @@
 const question = document.getElementById("question");
 const options = document.querySelector(".quiz-options");
+const totalQuestion2 = document.getElementById("total-question2");
+const actualQuestion = document.getElementById("actual-question");
 
 let correctAnswer = "",
   correctScore = (askedCount = 0),
@@ -15,5 +17,6 @@ async function loadQuestion() {
 }
 
 function showQuestion(data) {
-
+    actualQuestion.innerHTML = askedCount;
+    totalQuestion2.textContent = totalQuestion;
 }
