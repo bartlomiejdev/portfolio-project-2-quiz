@@ -30,6 +30,7 @@ function showQuestion(data) {
       Math.floor(Math.random() * (incorrectAnswer.length + 1)),
       0,
       correctAnswer
+      // Adding correct asnwer in random position in the list
     );
 
     question.innerHTML = `${data.question} <br> <span class = "category"> ${data.category} </span>`;
