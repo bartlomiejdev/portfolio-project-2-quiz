@@ -112,3 +112,10 @@ body {
   box-shadow: 0 4px 0 0 #6c4298;
   transition: var(--transition);
 }
+
+.quiz-options li:hover {
+  background-color: var(--grey-color);
+  color: var(--dark-color);
+  border-color: var(--grey-color);
+  box-shadow: 0 4px 0 0 #bbbbbb;
+}
