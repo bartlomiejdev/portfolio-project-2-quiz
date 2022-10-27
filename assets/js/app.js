@@ -5,6 +5,8 @@ const actualQuestion = document.getElementById("actual-question");
 const checkButton = document.getElementById("check-answer");
 const playAgainButton = document.getElementById("play-again");
 const result = document.getElementById("result");
+const _correctScore = document.getElementById("correct-score");
+const _totalQuestion = document.getElementById("total-question");
 
 let correctAnswer = "",
   correctScore = (askedCount = 0),
@@ -26,6 +28,13 @@ function eventListeners() {
   playAgainButton.addEventListener("click", restartQuiz);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  loadQuestion();
+  eventListeners();
+  _totalQuestion.textContent = totalQuestion;
+  _correctScore.textContent = correctScore;
+});
+
 // display questions and options
 function showQuestion(data) {
   actualQuestion.innerHTML = askedCount;
@@ -40,7 +49,7 @@ function showQuestion(data) {
     Math.floor(Math.random() * (incorrectAnswer.length + 1)),
     0,
     correctAnswer
-    // Adding correct asnwer in random position in the list
+    // Adding correct answer in random position in the list
   );
 
   question.innerHTML = `${data.question} <br> <span class = "category"> ${data.category} </span>`;
