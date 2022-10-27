@@ -77,18 +77,37 @@ function HTMLDecode(textString) {
 
 // answer checking
 function checkAnswer() {
-    checkButton.disabled = true;
-    if (options.querySelector(".selected")) {
-      let selectedAnswer = options.querySelector(".selected span").textContent;
-      if (selectedAnswer == HTMLDecode(correctAnswer)) {
-        correctScore++;
-        result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
-      } else {
-        result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
-      }
-      checkCount();
+  checkButton.disabled = true;
+  if (options.querySelector(".selected")) {
+    let selectedAnswer = options.querySelector(".selected span").textContent;
+    if (selectedAnswer == HTMLDecode(correctAnswer)) {
+      correctScore++;
+      result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
     } else {
-      result.innerHTML = `<p><i class = "fas fa-question"></i>Please select an option!</p>`;
-      checkButton.disabled = false;
+      result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
     }
+    checkCount();
+  } else {
+    result.innerHTML = `<p><i class = "fas fa-question"></i>Please select an option!</p>`;
+    checkButton.disabled = false;
   }
+}
+
+// count score and number of questions
+function checkCount() {
+  askedCount++;
+  setCount();
+  if (askedCount == totalQuestion) {
+    setTimeout(function () {
+      console.log("");
+    }, 5000);
+
+    result.innerHTML += `<p>Your score is ${correctScore}.</p>`;
+    playAgainButton.style.display = "block";
+    checkButton.style.display = "none";
+  } else {
+    setTimeout(function () {
+      loadQuestion();
+    }, 300);
+  }
+}
