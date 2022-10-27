@@ -3,6 +3,7 @@ const options = document.querySelector(".quiz-options");
 const totalQuestion2 = document.getElementById("total-question2");
 const actualQuestion = document.getElementById("actual-question");
 const checkButton = document.getElementById("check-answer");
+const playAgainButton = document.getElementById("play-again");
 
 let correctAnswer = "",
   correctScore = (askedCount = 0),
@@ -18,6 +19,13 @@ async function loadQuestion() {
   showQuestion(data[0]);
 }
 
+// event listeners
+function eventListeners() {
+    checkButton.addEventListener("click", checkAnswer);
+    playAgainButton.addEventListener("click", restartQuiz);
+}
+
+// display questions and options
 function showQuestion(data) {
   actualQuestion.innerHTML = askedCount;
   totalQuestion2.textContent = totalQuestion;
