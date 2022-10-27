@@ -31,4 +31,16 @@ function showQuestion(data) {
       0,
       correctAnswer
     );
+
+    question.innerHTML = `${data.question} <br> <span class = "category"> ${data.category} </span>`;
+    options.innerHTML = `
+          ${optionsList
+            .map(
+              (option, index) => `
+              <li> ${index + 1}. <span>${option}</span> </li>
+          `
+            )
+            .join("")}
+      `;
+    selectOption();
 }
