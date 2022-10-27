@@ -83,3 +83,19 @@ body {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.quiz-question .category {
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: var(--light-purple-color);
+  color: var(--light-color);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.quiz-options {
+  list-style-type: none;
+  margin: 1rem 0;
+}
