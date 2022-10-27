@@ -1,3 +1,6 @@
+const question = document.getElementById("question");
+const options = document.querySelector(".quiz-options");
+
 // fetch questions from API
 async function loadQuestion() {
     const url = "https://the-trivia-api.com/api/questions?categories=sport_and_leisure&limit=15&difficulty=medium";
