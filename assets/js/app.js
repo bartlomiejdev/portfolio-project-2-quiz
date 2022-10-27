@@ -2,6 +2,7 @@ const question = document.getElementById("question");
 const options = document.querySelector(".quiz-options");
 const totalQuestion2 = document.getElementById("total-question2");
 const actualQuestion = document.getElementById("actual-question");
+const checkButton = document.getElementById("check-answer");
 
 let correctAnswer = "",
   correctScore = (askedCount = 0),
@@ -19,4 +20,15 @@ async function loadQuestion() {
 function showQuestion(data) {
     actualQuestion.innerHTML = askedCount;
     totalQuestion2.textContent = totalQuestion;
+
+    checkButton.disabled = false;
+    correctAnswer = data.correctAnswer;
+    let incorrectAnswer = data.incorrectAnswers;
+
+    let optionsList = incorrectAnswer;
+    optionsList.splice(
+      Math.floor(Math.random() * (incorrectAnswer.length + 1)),
+      0,
+      correctAnswer
+    );
 }
